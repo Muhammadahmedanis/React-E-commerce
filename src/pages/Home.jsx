@@ -10,8 +10,8 @@ import Brand from '../components/Brand'
 
 function Home() {
   return (
+  <>
     <div className='bg-white'>
-      <div>
       <Sliders />
       <Category />
       <Arrival />
@@ -19,9 +19,9 @@ function Home() {
       <BestSeller />
       <Banner />
       <Brand />
-      </div>
-      <ContactUs />
     </div>
+      <ContactUs />
+  </>
   )
 }
 

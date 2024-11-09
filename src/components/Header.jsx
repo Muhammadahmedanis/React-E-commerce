@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link, NavLink } from 'react-router-dom';
 import { FaCartShopping, FaHeart  } from "react-icons/fa6";
+import AddToCartSideBar from './AddToCartSideBar';
 function Header() {
   const NavItem = [
     {path: '/', link:'Home'},
@@ -52,14 +53,15 @@ function Header() {
           </ul>
         </div>
 
-        <div className='flex gap-1 me-2'>
-          <div>
+        <div className='padding: 10px'>
+          <AddToCartSideBar />
+          {/* <div>
             <FaHeart className='hover:text-red-500 text-2xl' />
           </div>
           <div className='relative'>
             <FaCartShopping className='hover:text-red-500 text-3xl' />
             <span className='absolute -top-3 text-white -right-2 bg-red-500 rounded-full px-[6px] py-[0px]'>0</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

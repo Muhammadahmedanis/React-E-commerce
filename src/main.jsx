@@ -7,6 +7,8 @@ import Layout from './layout.jsx'
 import Feature from './pages/Feature.jsx'
 // import Home from './components/Home.jsx'
 import Home from './pages/Home.jsx'
+import { Provider } from 'react-redux'
+import store from './redux/store.js'
 
 
 const router = createBrowserRouter(
@@ -20,7 +22,10 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById('root')).render(
     <>
-    <App />
-    <RouterProvider router={router} />
+    <Provider store={store}>
+        <RouterProvider router={router} >
+            <App />
+        </RouterProvider>
+    </Provider>
     </>
 )
