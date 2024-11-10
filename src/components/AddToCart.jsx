@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getCartTotal, removeItem, updateQty } from '../redux/cartSlice';
 import { FaPlus } from "react-icons/fa6";
 import { TiMinus } from "react-icons/ti";
-import { IoMdClose } from "react-icons/io";
+import { IoCloseCircle } from "react-icons/io5";
 
 function AddToCart() {
     const dispatch = useDispatch();
@@ -34,10 +34,11 @@ function AddToCart() {
         <div className='h-screen overflow-y-auto'>
             {
                 cartProducts?.length === 0 ? ( <p className='font-bold text-xl text-center'>Your Cart is Empty</p> ) : (
+                    <div className='bg-slate-200 '>
                     <ul className='text-center p-2'>
                         {
                             cartProducts?.map((item, ind) => (
-                                <li key={ind} className='flex justify-around items-center gap-2 mb-2'>
+                                <li key={ind} className='border-gray-400 border-2 rounded p-2 relative flex justify-around items-center gap-2 mb-2'>
                                     <div className=''>
                                         <img className='object-cover w-[80px]' src={item.img} alt="" />
                                         <p className='font-semibold'>{item.name}</p>
@@ -46,23 +47,24 @@ function AddToCart() {
                                     <div>
                                         <div className='flex items-center p-1 '>
                                             <div>
-                                                <button onClick={() => decreaseQty(item.id, item.quantity)} className='rounded-circle bg-black text-white font-light text-[16px] p-1 border'><TiMinus /></button>
-                                                <span className=''>{item.quantity || 1}</span>
-                                                <button onClick={() => increaseQty(item.id, item.quantity)} className='rounded-circle bg-black text-white font-light text-[16px] p-1 border'><FaPlus /></button>
+                                                <button onClick={() => decreaseQty(item.id, item.quantity)} className='rounded-full bg-black text-white font-light text-[16px] p-1 border'><TiMinus /></button>
+                                                <span className='font-semibold text-xl px-1'>{item.quantity || 1}</span>
+                                                <button onClick={() => increaseQty(item.id, item.quantity)} className='rounded-full bg-black text-white font-light text-[16px] p-1 border'><FaPlus /></button>
                                             </div>
                                         </div>
-                                        <span className='font-bold'>$ {item.totalPrice}</span>
+                                        <span className='font-bold text-xl'>$ {item.totalPrice}</span>
                                     </div>
-                                    <div className='bg-black text-white text-xl p-1 hover:bg-red-500' onClick={() => handleRemove(item.id)}>
-                                        <IoMdClose />
+                                    <div className='text-black text-xl p-1 hover:text-slate-600 cursor-pointer absolute top-1 right-0' onClick={() => handleRemove(item.id)}>
+                                        <IoCloseCircle size={27} />
                                     </div>
                                 </li>
                             ))
                         }
-                        <div className='bg-black text-center text-white uppercase text-2xl p-1'>
+                        <div className='bg-slate-700 text-center text-white uppercase text-2xl p-1'>
                             ${totalAmount}
                         </div>
                     </ul>
+                    </div>
                 )
             }
         </div>

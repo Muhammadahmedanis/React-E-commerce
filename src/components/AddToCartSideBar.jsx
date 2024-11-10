@@ -17,7 +17,7 @@ function AddToCartSideBar() {
     };
 
     return (
-        <div className="flex">
+        <div className="flex gap-2">
             <div>
                 <FaHeart className="hover:text-red-500 text-2xl" />
             </div>
@@ -29,13 +29,13 @@ function AddToCartSideBar() {
                     <div className="fixed top-14 right-0 w-80 bg-white shadow-lg">
                         <AddToCart />
                         <span className="absolute top-2 right-2 cursor-pointer text-gray-600" onClick={hideRightBar}>
-                            <IoCloseCircle />
+                            <IoCloseCircle size={28} />
                         </span>
                     </div>
                 )}
-                <span className="absolute -top-2 text-white -right-2 bg-red-600 rounded-full py-0 px-[6px]">
-                    {totalItems}
-                </span>
+                    <span className="absolute cursor-pointer -top-2 text-white -right-2 bg-red-600 rounded-full py-0 px-[6px]">
+                        {totalItems != 0 && totalItems}
+                    </span>
             </div>
         </div>
     );

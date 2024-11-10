@@ -26,13 +26,13 @@ function Brand() {
     ];
 
     const NextArrow = ({ onClick }) => (
-        <div onClick={onClick} className="absolute top-[50%] translate-y-[-50%] right-0 text-3xl cursor-pointer z-10 text-gray-600 hover:text-gray-800">
+        <div onClick={onClick} className="absolute top-[50%] translate-y-[-50%] right-0 text-3xl cursor-pointer  text-gray-600 hover:text-gray-800">
             <FaChevronRight />
         </div>
     );
 
     const PrevArrow = ({ onClick }) => (
-        <div onClick={onClick} className="absolute top-[50%] translate-y-[-50%] left-0 text-3xl cursor-pointer z-10 text-gray-600 hover:text-gray-800">
+        <div onClick={onClick} className="absolute top-[50%] translate-y-[-50%] left-0 text-3xl cursor-pointer  text-gray-600 hover:text-gray-800">
             <FaChevronLeft />
         </div>
     );
@@ -44,7 +44,33 @@ function Brand() {
         slidesToShow: 5, // Adjust this based on the container size and number of items
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />
+        prevArrow: <PrevArrow />,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
     };
 
     return (

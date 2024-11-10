@@ -8,13 +8,16 @@ function Footer() {
       header: 'Shop',
       title: [
         {
+          subtitle: 'living room',
+        },
+        {
           subtitle: 'new arrivals',
         },
         {
-          subtitle: 'sales & special offers',
+          subtitle: 'sofa & chair',
         },
         {
-          subtitle: 'living room',
+          subtitle: 'home & kitchen',
         },
         {
           subtitle: 'furniture decor',
@@ -23,10 +26,7 @@ function Footer() {
           subtitle: 'lamp & lighting',
         },
         {
-          subtitle: 'sofa & chair',
-        },
-        {
-          subtitle: 'home & kitchen',
+          subtitle: 'sales & special offers',
         },
       ],
     },
@@ -35,10 +35,10 @@ function Footer() {
       header: 'About Us',
       title: [
         {
-          subtitle: 'Customer Services',
+          subtitle: 'Blog',
         },
         {
-          subtitle: 'Blog',
+          subtitle: 'Faqs',
         },
         {
           subtitle: 'Page 404',
@@ -47,10 +47,10 @@ function Footer() {
           subtitle: 'Size Guide',
         },
         {
-          subtitle: 'Faqs',
+          subtitle: 'Contact Us',
         },
         {
-          subtitle: 'Contact Us',
+          subtitle: 'Customer Services',
         },
       ],
     },
@@ -59,16 +59,16 @@ function Footer() {
       header: 'ORDER',
       title: [
         {
-          subtitle: 'My Account',
-        },
-        {
           subtitle: 'View Bag',
         },
         {
-          subtitle: 'Privacy Policy',
+          subtitle: 'My Account',
         },
         {
           subtitle: 'Cookie Policy',
+        },
+        {
+          subtitle: 'Privacy Policy',
         },
       ],
     },
@@ -92,14 +92,14 @@ const icons = [
 
   return (
     <div className='bg-white text-black py-8 px-4'>
-      <div className='flex justify-between'>
-        <div className='w-1/2'>
-          <div className='flex justify-around uppercase'>
+      <div className='flex flex-col lg:flex-row justify-around'>
+        <div className='w-auto lg:w-1/2 text-center lg:text-justify'>
+          <div className='flex flex-col lg:flex-row justify-center uppercase '>
             {
               list.map((val, ind) => (
                 <div key={ind}>
                   <div className='text-2xl font-semibold mb-2'>{val.header}</div>
-                  <div className='flex flex-col'>
+                  <div className='flex flex-col justify-center'>
                     {
                       val.title.map((item, key) => (
                         <span key={key} className='mr-2 mb-2 hover:text-red-500 cursor-pointer'>{item.subtitle}</span>
@@ -112,11 +112,13 @@ const icons = [
           </div>
         </div>
 
-        <div className='w-1/2 p-6 bg-gray-100 rounded-lg shadow-md'>
+        <div className='w-auto lg:w-1/2 p-6 bg-gray-100 rounded-lg shadow-md'>
           <h1 className='text-2xl font-semibold mb-4'>SIGN UP FOR NEWSLETTER</h1>
           <p className='text-gray-600 mb-4'>Don't miss out on exciting prmotions and latest shopping news</p>
-          <input className='w-2/3 p-3 border-gray-300 rounded mb-4' type="text" placeholder='Your Email Address' />
-          <button className='bg-black text-white p-3 ml-4 rounded hover:bg-red-500' type='button'>SUBSCRIBE</button>
+          <div className='flex'>
+          <input className='w-auto lg:w-2/3 p-2 border-gray-300 rounded mb-4' type="text" placeholder='Your Email Address' />
+          <button className='bg-black text-white p-2 ml-4 h-fit rounded hover:bg-red-500' type='button'>SUBSCRIBE</button>
+          </div>
           <div className='flex'>
             {
               icons.map((val, ind) => (

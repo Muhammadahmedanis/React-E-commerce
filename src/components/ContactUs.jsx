@@ -4,8 +4,8 @@ const ContactUs = () => {
   return (
     <div className="relative">
       <div className="m-16">
-        <div className="grid place-items-end">
-          <div className="bg-white text-black font-semibold p-10">
+        <div className="grid grid-cols-1 place-items-end">
+          <div className="bg-transparent lg:bg-white text-white lg:text-black font-semibold p-10">
             <div className="p-5">
               <h4 className="uppercase text-2xl mb-4">Hello Customer!</h4>
               <h2 className="uppercase text-2xl">Visit our store</h2>

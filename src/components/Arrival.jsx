@@ -19,67 +19,67 @@ const products = [
     id: 2,
     img: "/images/product/product2.jpg",
     name: "OFFICE",
-    price: "55.00",
+    price: "65.00",
   },
   {
     id: 3,
     img: "/images/product/product6.jpg",
     name: "LIGHTING",
-    price: "55.00",
+    price: "85.00",
   },
   {
     id: 4,
     img: "/images/product/product5.jpg",
     name: "BATHROOM",
-    price: "55.00",
+    price: "95.00",
   },
   {
     id: 5,
     img: "/images/product/product4.jpg",
     name: "KITCHEN",
-    price: "55.00",
+    price: "35.00",
   },
   {
     id: 6,
     img: "/images/product/product3.jpg",
     name: "INTERIOR",
-    price: "55.00",
+    price: "50.00",
   },
   {
     id: 7,
     img: "/images/product/product7.jpg",
     name: "LIVING ROOM",
-    price: "55.00",
+    price: "100.00",
   },
   {
     id: 8,
     img: "/images/product/product8.jpg",
     name: "DECOR",
-    price: "55.00",
+    price: "75.00",
   },
   {
     id: 9,
     img: "/images/product/product9.jpg",
     name: "LIVING ROOM",
-    price: "55.00",
+    price: "45.00",
   },
   {
     id: 10,
     img: "/images/product/product10.jpg",
     name: "SOFA",
-    price: "55.00",
+    price: "25.00",
   },
   {
     id: 11,
     img: "/images/product/product11.jpg",
     name: "LIVING ROOM",
-    price: "55.00",
+    price: "150.00",
   },
   {
     id: 12,
     img: "/images/product/product12.jpg",
     name: "SOFA",
-    price: "55.00",
+    price: "65.00",
   },
 ];
 
@@ -104,7 +104,33 @@ function Arrival() {
       slidesToShow: 4, // Adjust this based on the container size and number of items
       slidesToScroll: 1,
       nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />
+      prevArrow: <PrevArrow />,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
   };
 
   const [qty] = useState(1);

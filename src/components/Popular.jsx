@@ -82,13 +82,13 @@ const products = [
 ];
 
 const NextArrow = ({ onClick }) => (
-    <div onClick={onClick} className="absolute top-[50%] translate-y-[-50%] right-0 text-3xl cursor-pointer z-10 text-gray-600 hover:text-gray-800">
+    <div onClick={onClick} className="absolute top-[50%] translate-y-[-50%] -right-2 text-3xl cursor-pointer text-gray-600 hover:text-gray-800">
         <FaChevronRight />
     </div>
 );
 
 const PrevArrow = ({ onClick }) => (
-    <div onClick={onClick} className="absolute top-[50%] translate-y-[-50%] left-0 text-3xl cursor-pointer z-10 text-gray-600 hover:text-gray-800">
+    <div onClick={onClick} className="absolute top-[50%] translate-y-[-50%] -left-2 text-3xl cursor-pointer  text-gray-600 hover:text-gray-800">
         <FaChevronLeft />
     </div>
 );
@@ -102,14 +102,40 @@ function Popular() {
       slidesToShow: 1, // Adjust this based on the container size and number of items
       slidesToScroll: 1,
       nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />
+      prevArrow: <PrevArrow />,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
   };
 
   return (
     <div className='mt-16 overflow-hidden text-center relative '>
       <h1 className='font-bold text-4xl m-2 p-2 uppercase'>Top Popular</h1>
       <p className='mb-8 uppercase'>shop the new selection of new arrivals at out store. fill out your wishlist item </p>
-      <div className='columns-2 h-full bg-gray-100'>
+      <div className='columns-1 lg:columns-2 h-full bg-gray-100'>
         <div className="columns-1 ">
           <div className="p-6">
         <Slider {...settings}>
